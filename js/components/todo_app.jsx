@@ -4,6 +4,10 @@ var TodoStore = require('../stores/todo_store');
 
 var TodoApp = React.createClass({
 
+  componentDidMount: function() {  
+    TodoStore.bind('change', this._todoListChanged);
+  },
+
   render: function(){
     return (
       <div>
@@ -21,7 +25,12 @@ var TodoApp = React.createClass({
       eventName: 'new-item',
       newItem: { text: 'Caleb Thill' } // example data for right now...
     });
+  },
+
+  _todoListChanged: function() {
+    console.log("The todo list changed")
   }
+
 });
 
 module.exports = TodoApp;
