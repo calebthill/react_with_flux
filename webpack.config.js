@@ -1,3 +1,6 @@
+// Help getting this set up from: http://jslog.com/2014/10/02/react-with-webpack-part-1/
+// Some of the code is depreciated since the article was written in 2014 so be aware.
+
 module.exports = {
   entry: './app.jsx',
   output: {
