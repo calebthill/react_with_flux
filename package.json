@@ -12,6 +12,7 @@
   "author": "Caleb Thill",
   "license": "ISC",
   "dependencies": {
+    "flux": "^2.0.1",
     "react": "^0.14.0"
   },
   "devDependencies": {
