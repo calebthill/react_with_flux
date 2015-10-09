@@ -14,6 +14,10 @@ var TodoStore = {
       isComplete: false
     }
   },
+
+  _getAll: function() {
+    return items;
+  }
 }
 
 // MicroEvent.js is a event emitter library.
