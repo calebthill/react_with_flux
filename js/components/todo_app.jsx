@@ -1,5 +1,6 @@
 var React = require('react')
 var AppDispatcher = require('../dispatcher/app_dispatcher')
+var TodoTextInput = require('./todo_text_input')
 var TodoStore = require('../stores/todo_store');
 
 function getTodoState() {
@@ -37,25 +38,14 @@ var TodoApp = React.createClass({
         <ul>
           { todos }
         </ul>
-        <div>
-          <button onClick={ this._createNewItem }>New Item</button>
-        </div>
+        <TodoTextInput />
       </div>
     );
-  },
-
-  // ACTIONS: 
-  _createNewItem: function( event ) {
-    AppDispatcher.dispatch({
-      eventName: 'new-item',
-      newItem: { text: 'Caleb Thill' } // example data for right now...
-    });
   },
 
   _todoListChanged: function() {
     this.setState(getTodoState());
   }
-
 });
 
 module.exports = TodoApp;
