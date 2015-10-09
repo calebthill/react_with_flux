@@ -2,6 +2,7 @@ var React = require('react')
 var AppDispatcher = require('../dispatcher/app_dispatcher')
 var TodoTextInput = require('./todo_text_input')
 var TodoStore = require('../stores/todo_store');
+var TodoActions = require('../actions/todo_actions');
 
 function getTodoState() {
   return {
@@ -28,13 +29,15 @@ var TodoApp = React.createClass({
     var todos = []
 
     for (var key in allTodos) {
-      todos.push(<li key={key}>{ allTodos[key].text }</li>);
+      todos.push(<li key={key}>{ allTodos[key].text } --- <span onClick={TodoActions._removeItem.bind(null, key)}>Finished</span></li>);
     }
 
 
     return (
       <div>
-        <p className="name">React App</p>
+        <div className='header'>
+          <p className="name">Calebs TODO App</p>
+        </div>
         <ul>
           { todos }
         </ul>

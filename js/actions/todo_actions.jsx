@@ -7,6 +7,13 @@ var TodoActions = {
       eventName: 'new-item',
       newItem: { text: text } 
     });
+  },
+
+  _removeItem: function( id ) {
+    AppDispatcher.dispatch({
+      eventName: 'remove-item',
+      id: id
+    });
   }
 };
 

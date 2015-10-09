@@ -6,13 +6,17 @@ var idCounter = Object.keys(items).length;
 
 var TodoStore = {
 
-  _create: function(text){
+  _create: function(text) {
     var id = ++idCounter;
     items[id] = {
       id: id,
       text: text,
       isComplete: false
     }
+  },
+
+  _destroy: function(id) {
+    delete items[id];
   },
 
   _getAll: function() {
@@ -24,7 +28,6 @@ var TodoStore = {
 MicroEvent.mixin(TodoStore); 
 
 AppDispatcher.register(function(action) {
-  console.log(action)
   switch(action.eventName) {
     case 'new-item':
       text = action.newItem.text.trim();
@@ -33,6 +36,11 @@ AppDispatcher.register(function(action) {
         TodoStore.trigger('change')
         console.log(items)
       }
+      break;
+
+    case 'remove-item':
+      TodoStore._destroy(action.id)
+      TodoStore.trigger('change')
       break;
 
     default:

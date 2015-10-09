@@ -1,7 +1,15 @@
-/* Clear any pre-set styles */
-html, body, div, span, img, p, table, tr, td {
-  margin: 0;
+
+
+html, body, #content {
+  height: 100%;
+}
+
+ul {
   padding: 0;
-  overflow: hidden;
-  font-family: arial, sans-serif;
+  list-style: none;
+}
+
+
+#content {
+  text-align: center;
 }
